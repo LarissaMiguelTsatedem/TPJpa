@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+
 @RestController
-public class MonService {
+class Monservice {
     CarRepository carRepository;
     @Automired
-    public MonService (CarRepository carRepository){
-       System.out.println( carRepository);
-       this.carRepository=carRepository;
+    public Monservice (CarRepository carRepository){
+        System.out.println( carRepository);
+        this.carRepository=carRepository;
     }
     ArrayList<Car> cars = new ArrayList<Car>();
     @ResponseStatus(value = HttpStatus.NOT_FOUND , reason="car not found")//404
@@ -41,6 +42,6 @@ public class MonService {
     }
     @PostMapping("/cars")
     public void addCar(@RequestBody Car car ){
-       carRepository.save(car) ;
+        carRepository.save(car) ;
     }
 }
