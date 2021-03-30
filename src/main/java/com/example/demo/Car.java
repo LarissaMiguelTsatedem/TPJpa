@@ -17,13 +17,16 @@ public class Car {
     public Car() {
         super();
     }
-    public String getPlateNumber() {
 
+    public Car(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
+    public String getPlateNumber() {
         return plateNumber;
     }
 
     public void setPlateNumber(String plateNumber) {
-
         this.plateNumber = plateNumber;
     }
 
@@ -50,10 +53,12 @@ public class Car {
     @OneToMany(mappedBy="car", cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     public List<Rent> getRent() {
+
         return rents;
     }
 
     public void setRent(List<Rent> rents) {
+
         this.rents = rents;
     }
 
